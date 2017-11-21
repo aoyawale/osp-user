@@ -22,7 +22,23 @@
       enpoint_type: "{{ user_endpoint }}"
     debug:
       var: openstack_users
+    when:
+
+  - name: create the user
+    os_user:
+    endpoint_type: "{{ user_endpoint }}"
+    auth: "{{ user_auth }}"
+    cert: "{{ user_cert }}"
+    key: "{{ user_key }}"
+    cacert: "{{ user_cacert }}"
+    default_project: "{{ user_project }}"
+    name: "{{ user_name }}"
+    description: "{{ user_descript }}"
+    email: "{{ user_email }}"
+    enabled: "{{ user_status }}"
+    password: "{{ user_passwd }}"
+    update_password: "{{ user_passwd_create }}"
 
 
-      
+
 
