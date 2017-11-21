@@ -1,2 +1,28 @@
 ---
 # tasks file for osp-user
+
+  - name: get the osp auth
+    os_auth:
+    region_name: "{{ region }}"
+    cert: "{{ user_cert }}"
+    key: "{{ user_key }}"
+    cacert: "{{ user_key }}"
+    endpoint_type: "{{ user_enpoint }}"
+    register: user_auth
+
+  - name: get user information from v2
+    os_user_facts:
+      name: "{{ user }}"
+      cert: "{{ user_cert }}"
+      key: "{{ user_key }}"
+      cacert: "{{ user_cacert }}"
+      region_name: "{{ region }}"
+      domain: " {{ domain_name }}" 
+      availability_zone: "{{ zone }}"
+      enpoint_type: "{{ user_endpoint }}"
+    debug:
+      var: openstack_users
+
+
+      
+
