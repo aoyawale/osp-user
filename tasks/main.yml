@@ -24,7 +24,7 @@
 
   - name: create the user
     os_user:
-      endpoint_type: "{{ user_endpoint }}"
+      endpoint_type: "{{  }}"
       auth: "{{ user_auth }}"
       cert: "{{ user_cert }}"
       key: "{{ user_key }}"
@@ -37,7 +37,7 @@
       password: "{{ user_passwd }}"
       update_password: "{{ user_passwd_create }}"
     with_subelements:
-      -
+      - 
     when: 
 
 

@@ -17,7 +17,7 @@ user_endpoint:
 zone:
 user_project:
 user_email:
-user_name:
+username:
 user_descript:
 user_status:
 user_passwd:
@@ -27,26 +27,32 @@ user_passwd_create:
 
 osp_user:
   api:
-  auth:
-    auth_url:
-    username:
-    password:
-    project_name:
-  auth_type:
-  endpoint_type: 
-  region_name:
-  keystone_version:
-
-  user:
-    user_name:
-    user_email:
-    user_descript:
-    user_status:
-    user_passwd:
-    user_passwd_create:
-    user_project:
-  
-  
+    auth:
+      auth_url: "http://192.168.0.1:35357/v.20"
+      username: "admin"
+      password: "{{ keystone_admin_password }}"
+      project_name: "admin"
+    auth_type: "password"
+    endpoint_type: "admin"
+    region_name: "RegionOne"
+    keystone_version: "2"
+  users:
+    - admin:
+        username:
+        user_email:
+        user_description:
+        user_status:
+        user_passwd:
+        user_passwd_create:
+        user_project:
+    - user:
+        username:
+        user_email:
+        user_description:
+        user_status:
+        user_passwd:
+        user_passwd_create:
+        user_project:  
 
 Dependencies
 ------------
