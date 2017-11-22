@@ -1,27 +1,60 @@
 Role Name
 =========
 
-A brief description of the role goes here.
-
+This role creates a osp user. This roles vars are similar to other osp roles so they can be used all together.
 Requirements
 ------------
 
-Any pre-requisites that may not be covered by Ansible itself or the role should be mentioned here. For instance, if the role uses the EC2 module, it may be a good idea to mention in this section that the boto package is required.
 
 Role Variables
 --------------
+```
+region:
+user_cert:
+user_key:
+user_cacert:
+user_endpoint:
+zone:
+user_project:
+user_email:
+user_name:
+user_descript:
+user_status:
+user_passwd:
+user_passwd_create:
+```
+```
 
-A description of the settable variables for this role should go here, including any variables that are in defaults/main.yml, vars/main.yml, and any variables that can/should be set via parameters to the role. Any variables that are read from other roles and/or the global scope (ie. hostvars, group vars, etc.) should be mentioned here as well.
+osp_user:
+  api:
+  auth:
+    auth_url:
+    username:
+    password:
+    project_name:
+  auth_type:
+  endpoint_type: 
+  region_name:
+  keystone_version:
+
+  user:
+    user_name:
+    user_email:
+    user_descript:
+    user_status:
+    user_passwd:
+    user_passwd_create:
+    user_project:
+  
+  
 
 Dependencies
 ------------
 
-A list of other roles hosted on Galaxy should go here, plus any details in regards to parameters that may need to be set for other roles, or variables that are used from other roles.
 
 Example Playbook
 ----------------
 
-Including an example of how to use your role (for instance, with variables passed in as parameters) is always nice for users too:
 
     - hosts: servers
       roles:
