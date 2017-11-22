@@ -24,18 +24,14 @@
 
   - name: create the user
     os_user:
-      endpoint_type: "{{  }}"
-      auth: "{{ user_auth }}"
-      cert: "{{ user_cert }}"
-      key: "{{ user_key }}"
-      cacert: "{{ user_cacert }}"
+      endpoint_type: "{{ osp_user.user.endpoint_type  }}"
       default_project: "{{ user_project }}"
-      name: "{{ user_name }}"
-      description: "{{ user_descript }}"
-      email: "{{ user_email }}"
-      enabled: "{{ user_status }}"
-      password: "{{ user_passwd }}"
-      update_password: "{{ user_passwd_create }}"
+      name: "{{ osp_user.user.username }}"
+      description: "{{ osp_user.user.user_description }}"
+      email: "{{ osp_user.user.user_email }}"
+      enabled: "{{ osp_user.user.user_status }}"
+      password: "{{ osp_user.user.user_passwd }}"
+      update_password: "{{ osp_user.user.user_passwd_create }}"
     with_subelements:
       - 
     when: 
