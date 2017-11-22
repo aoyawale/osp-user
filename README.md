@@ -45,14 +45,23 @@ osp_user:
         user_passwd:
         user_passwd_create:
         user_project:
-    - user:
+    - user1:
         username:
         user_email:
         user_description:
         user_status:
         user_passwd:
         user_passwd_create:
-        user_project:  
+        user_project:
+    - user2:
+        username:
+        user_email:
+        user_description:
+        user_status:
+        user_passwd:
+        user_passwd_create:
+        user_project:
+  
 
 Dependencies
 ------------

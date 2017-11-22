@@ -26,14 +26,15 @@
     os_user:
       endpoint_type: "{{ osp_user.user.endpoint_type  }}"
       default_project: "{{ user_project }}"
-      name: "{{ osp_user.user.username }}"
+      name: "{{ osp_user.users.username }}"
       description: "{{ osp_user.user.user_description }}"
       email: "{{ osp_user.user.user_email }}"
       enabled: "{{ osp_user.user.user_status }}"
       password: "{{ osp_user.user.user_passwd }}"
       update_password: "{{ osp_user.user.user_passwd_create }}"
     with_subelements:
-      - 
+      - "{{ osp_user.admin }}"
+      - "{{ osp_user.users }}"
     when: 
 
 
