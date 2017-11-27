@@ -24,7 +24,7 @@
     os_user:
       endpoint_type: "{{ osp_user.api.endpoint_type  }}"
       auth: "{{ osp_user.api.auth }}"
-      default_project: "{{ osp_user.default_project }}"
+      default_project: "{{ item.1.admin.email }}"
       name: "{{ item.1.admin.name }}"
       description: "{{ item.1.admin.description  }}"
       email: "{{ item.1.admin.email }}"
@@ -32,8 +32,7 @@
       password: "{{ item.1.admin.password }}"
       update_password: "{{ item.1.admin.update_password }}"
     with_subelements:
-      - "{{ osp_user.admin }}"
-      - "{{ osp_user.users }}"
+      - "{{ osp_user.domains }}"
  
 
 
