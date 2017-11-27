@@ -38,30 +38,38 @@ osp_user:
     keystone_version: "2"
   users:
     - admin:
-        username:
-        user_email:
-        user_description:
-        user_status:
-        user_passwd:
-        user_passwd_create:
-        user_project:
+        name:
+        email:
+        description:
+        enabled:
+        password:
+        region_name:
+        state:
+        domain:
+        default_project:
+        update_password: on_create
     - user1:
-        username:
-        user_email:
-        user_description:
-        user_status:
-        user_passwd:
-        user_passwd_create:
-        user_project:
+        name:
+        email:
+        description:
+        enabled:
+        password:
+        region_name:
+        state:
+        domain:
+        default_project:
+        update_password: on_create
     - user2:
-        username:
-        user_email:
-        user_description:
-        user_status:
-        user_passwd:
-        user_passwd_create:
-        user_project:
-  
+        name:
+        email:
+        description:
+        enabled:
+        password:
+        region_name:
+        state:
+        domain:
+        default_project:
+        update_password: on_create
 
 Dependencies
 ------------
