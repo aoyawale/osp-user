@@ -35,7 +35,7 @@
     with_subelements:
       - "{{ osp_user.admin }}"
       - "{{ osp_user.users }}"
-    when: 
+ 
 
 
 
