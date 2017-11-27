@@ -7,7 +7,7 @@
     cert: "{{ user_cert }}"
     key: "{{ user_key }}"
     cacert: "{{ user_cacert }}"
-    endpoint_type: "{{ user_enpoint }}"
+    endpoint_type: "{{ osp_user.api.endpoint_type }}"
 
   - name: get user information
     os_user_facts:
@@ -15,23 +15,22 @@
       cert: "{{ user_cert }}"
       key: "{{ user_key }}"
       cacert: "{{ user_cacert }}"
-      region_name: "{{ region }}"
-      domain: " {{ domain_name }}" 
-      availability_zone: "{{ zone }}"
-      enpoint_type: "{{ user_endpoint }}"
-    debug:
-      var: openstack_users
+      region_name: "{{ osp_user.api.region_name }}"
+      domain: " {{ osp_user.api.user_domain_name }}" 
+      enpoint_type: "{{ osp_user.api.endpoint_type }}"
+    
 
   - name: create the user
     os_user:
-      endpoint_type: "{{ osp_user.user.endpoint_type  }}"
-      default_project: "{{ user_project }}"
-      name: "{{ osp_user.users.username }}"
-      description: "{{ osp_user.user.user_description }}"
-      email: "{{ osp_user.user.user_email }}"
-      enabled: "{{ osp_user.user.user_status }}"
-      password: "{{ osp_user.user.user_passwd }}"
-      update_password: "{{ osp_user.user.user_passwd_create }}"
+      endpoint_type: "{{ osp_user.api.endpoint_type  }}"
+      auth: "{{ osp_user.api.auth }}"
+      default_project: "{{ osp_user.default_project }}"
+      name: "{{ item.1.admin.name }}"
+      description: "{{ item.1.admin.description  }}"
+      email: "{{ item.1.admin.email }}"
+      enabled: "{{ item.1.admin.enabled }}"
+      password: "{{ item.1.admin.password }}"
+      update_password: "{{ item.1.admin.update_password }}"
     with_subelements:
       - "{{ osp_user.admin }}"
       - "{{ osp_user.users }}"
